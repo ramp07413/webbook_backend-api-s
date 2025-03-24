@@ -129,7 +129,7 @@ const logout = catchAsyncErrors(async(req, res, next)=>{
 
 })
 
-const getUser = async (req, res) => {
+const getuser = async (req, res) => {
     try {
       const user = await User.findById(req.user.id);
       if (!user) {
