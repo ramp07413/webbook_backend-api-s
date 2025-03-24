@@ -25,7 +25,7 @@ require("dotenv").config();
 
 
 app.use(cors({
-    origin : [process.env.FRONTEND_URL],
+    origin : [process.env.FRONTEND_URL, "https://webbook-backend-zhi0.onrender.com"],
     methods : ["GET", "POST", "PUT", "DELETE"],
     credentials : true,
 }))

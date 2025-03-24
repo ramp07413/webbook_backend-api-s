@@ -129,17 +129,15 @@ const logout = catchAsyncErrors(async(req, res, next)=>{
 
 })
 
-const getuser = async (req, res) => {
-    try {
-      const user = await User.findById(req.user.id);
-      if (!user) {
-        return res.status(404).json({ success: false, message: "User not found" });
-      }
-      res.status(200).json({ success: true, user });
-    } catch (error) {
-      res.status(400).json({ success: false, message: "Bad request" });
-    }
-  };
+const getuser = catchAsyncErrors(async(req, res, next)=>{
+    const user = req.user
+    res.status(200).json({
+        success : true,
+        user,
+    })
+})
+
+
 
 const forgotpassword = catchAsyncErrors(async(req, res, next)=>{
     if(!req.body.email){
