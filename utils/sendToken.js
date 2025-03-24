@@ -1,4 +1,4 @@
-const sendToken = (user, statuscode, message, res)=>{
+const sendToken = (user, statuscode, message, res, req)=>{
     const token = user.generateToken()
     const isLocalhost = req.headers.origin?.includes("localhost");
 
