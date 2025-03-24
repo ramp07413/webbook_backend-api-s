@@ -117,10 +117,15 @@ const login = catchAsyncErrors(async(req, res, next)=>{
     sendToken(user, 200, "user login successfully!", res, req)
 })
 
+
 const logout = catchAsyncErrors(async(req, res, next)=>{
+    const isLocalhost = req.headers.origin && req.headers.origin.includes("localhost");
     res.status(200).cookie("token", "",{
-        expires: new Date(Date.now()),
+        expires: new Date(0),
         httpOnly : true,
+        secure: !isLocalhost,  
+        sameSite: isLocalhost ? "Lax" : "None", 
+        path: "/"               
     }).json({
         success : true,
         message : "logout successfully !"
