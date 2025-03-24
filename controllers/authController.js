@@ -114,8 +114,7 @@ const login = catchAsyncErrors(async(req, res, next)=>{
     if(!isPasswordMatched){
         return next(new Errorhandle("invaild email or password ", 400))
     }
-    sendToken(user, 200, "user login successfully!", res, req)
-
+    sendToken(user, 200, "user login successfully!", res)
 })
 
 const logout = catchAsyncErrors(async(req, res, next)=>{
@@ -137,8 +136,6 @@ const getuser = catchAsyncErrors(async(req, res, next)=>{
         user,
     })
 })
-
-
 
 const forgotpassword = catchAsyncErrors(async(req, res, next)=>{
     if(!req.body.email){

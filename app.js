@@ -25,7 +25,7 @@ require("dotenv").config();
 
 
 app.use(cors({
-    origin : [process.env.FRONTEND_URL, "https://webbook-backend-zhi0.onrender.com"],
+    origin : [process.env.FRONTEND_URL],
     methods : ["GET", "POST", "PUT", "DELETE"],
     credentials : true,
 }))
@@ -46,8 +46,6 @@ app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/book', bookRouter)
 app.use('/api/v1/borrow', borrowRouter)
 app.use('/api/v1/user', userRouter)
-
-
 
 // https://localhost:4000/api/v1/auth
 notifyUsers()
