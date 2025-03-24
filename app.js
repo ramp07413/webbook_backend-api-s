@@ -47,15 +47,6 @@ app.use('/api/v1/book', bookRouter)
 app.use('/api/v1/borrow', borrowRouter)
 app.use('/api/v1/user', userRouter)
 
-app.get("/api/v1/set-cookie", (req, res) => {
-    res.cookie("token", "123456", {
-        httpOnly: true,  
-        secure: false,  
-        sameSite: "None"  
-    });
-
-    res.json({ message: "Cookie set successfully!" });
-});
 
 
 // https://localhost:4000/api/v1/auth
