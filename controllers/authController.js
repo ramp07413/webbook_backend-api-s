@@ -90,7 +90,7 @@ const verifyOTP = catchAsyncErrors(async(req, res, next)=>{
         user.verificationCodeExpire = null
         await user.save({validateModifiedOnly : true})
 
-        sendToken(user, 200, "Account Verified.", res);
+        sendToken(user, 200, "Account Verified.", res, req);
         
     } catch (error) {
         return next(new Errorhandle("internal server error.", 500))
@@ -116,7 +116,6 @@ const login = catchAsyncErrors(async(req, res, next)=>{
     }
     sendToken(user, 200, "user login successfully!", res, req)
 })
-
 
 const logout = catchAsyncErrors(async(req, res, next)=>{
     const isLocalhost = req.headers.origin && req.headers.origin.includes("localhost");
