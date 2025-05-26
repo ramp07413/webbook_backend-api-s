@@ -4,7 +4,7 @@ const sendToken = (user, statuscode, message, res, req)=>{
 
     res.status(statuscode).cookie("token", token, {
         expires : new Date(Date.now() + process.env.COOKIE_EXPIRE*24*60*60*1000),
-        httpOnly : "true",
+        httpOnly : true,
         secure: !isLocalhost,  
         sameSite: isLocalhost ? "Lax" : "None", 
     }).json({
