@@ -5,7 +5,7 @@ const {isAuthenticated, isAuthorized} = require('../middleware/authMiddleware');
 
 router.post("/register", register);
 router.post("/verify-otp", verifyOTP);
-router.get("/login", login);
+router.post("/login", login);
 router.get("/logout",isAuthenticated, logout)
 router.get("/me",isAuthenticated, getuser)
 router.post("/password/forgot", forgotpassword)
