@@ -99,7 +99,7 @@ const verifyOTP = catchAsyncErrors(async(req, res, next)=>{
 })
 
 const login = catchAsyncErrors(async(req, res, next)=>{
-    const {email, password} = req.query;
+    const {email, password} = req.body;
     if(!email || !password){
         return next(new Errorhandle("please enter all fields.", 400));
     }
