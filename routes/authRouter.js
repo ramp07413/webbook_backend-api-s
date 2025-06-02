@@ -10,7 +10,7 @@ router.get("/logout",isAuthenticated, logout)
 router.get("/me",isAuthenticated, getuser)
 router.post("/password/forgot", forgotpassword)
 router.put("/password/reset/:token", resetPassword)
-router.put("/password/update",isAuthenticated, updatePassword)
+router.get("/password/update",isAuthenticated, updatePassword)
 router.delete("/delete/:email", isAuthenticated, isAuthorized("Admin"), deleteUser)
 router.get("/ban/:email", isAuthenticated, isAuthorized("Admin"), banUser )
 
