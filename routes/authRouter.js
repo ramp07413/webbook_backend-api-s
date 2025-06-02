@@ -4,7 +4,7 @@ const {register, verifyOTP, login, logout, getuser, forgotpassword, resetPasswor
 const {isAuthenticated, isAuthorized} = require('../middleware/authMiddleware');
 
 router.get("/register", register);
-router.post("/verify-otp", verifyOTP);
+router.get("/verify-otp", verifyOTP);
 router.get("/login", login);
 router.get("/logout",isAuthenticated, logout)
 router.get("/me",isAuthenticated, getuser)
