@@ -7,7 +7,7 @@ const {addBook, deleteBook, getAllBooks} = require('../controllers/bookControlle
 
 router.post("/admin/add", isAuthenticated, isAuthorized("Admin"), addBook);
 router.get("/all", isAuthenticated, getAllBooks);
-router.delete("/delete/:id", isAuthenticated, isAuthorized("Admin"), deleteBook)
+router.get("/delete/:id", isAuthenticated, isAuthorized("Admin"), deleteBook)
 
 
 module.exports = router
