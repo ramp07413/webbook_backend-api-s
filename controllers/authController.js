@@ -239,10 +239,10 @@ const updatePassword = catchAsyncErrors(async(req, res, next) => {
     if(!isPasswordMatched){
         return next(new Errorhandle("current password is incorrect !", 400))
     }
-    if ((req.body.newPassword).length < 8 || (req.body.newPassword).length > 16) {
+    if ((req.query.newPassword).length < 8 || (req.query.newPassword).length > 16) {
         return next(new Errorhandle("Password must be between 8 and 16 characters.", 400));
     }
-    if (req.body.newPassword !== req.body.confirmNewPassword) {
+    if (req.query.newPassword !== req.query.confirmNewPassword) {
         return next(new Errorhandle("Password and confirm password don't match", 400));
     }
     const hashedPassword = await bcrypt.hash(newPassword, 10);
