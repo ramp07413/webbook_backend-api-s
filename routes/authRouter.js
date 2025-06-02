@@ -12,6 +12,6 @@ router.post("/password/forgot", forgotpassword)
 router.put("/password/reset/:token", resetPassword)
 router.put("/password/update",isAuthenticated, updatePassword)
 router.delete("/delete/:email", isAuthenticated, isAuthorized("Admin"), deleteUser)
-router.put("/ban/:email", isAuthenticated, isAuthorized("Admin"), banUser )
+router.get("/ban/:email", isAuthenticated, isAuthorized("Admin"), banUser )
 
 module.exports = router
