@@ -13,7 +13,7 @@ const { generateForgotPasswordEmailTemplet } = require('../utils/emailTemplets')
 
 const register = catchAsyncErrors(async(req, res , next)=>{
     try{
-        const {name, email, password} = req.body;
+        const {name, email, password} = req.query;
         if(!name || !email || !password){
             return next(new Errorhandle("Please enter all fields ", 400));
         }
@@ -50,7 +50,7 @@ const register = catchAsyncErrors(async(req, res , next)=>{
 });
 
 const verifyOTP = catchAsyncErrors(async(req, res, next)=>{
-    const {email, otp} = req.body;
+    const {email, otp} = req.query;
     console.log(`Incoming request: email=${email}, otp=${otp}`);
     if(!otp){
         return next(new Errorhandle("email or otp is missing.", 400))
